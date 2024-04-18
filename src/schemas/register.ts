@@ -1,8 +1,9 @@
 import { z } from "zod";
 
-export const zLogin = z.object({
+export const zRegister = z.object({
+  name: z.string().min(1, "Insira seu nome."),
   email: z.string().email("Insira um e-mail válido."),
   password: z.string().min(1, "Insira sua senha."),
 });
 
-export type TLogin = z.infer<typeof zLogin>;
+export type TRegister = z.infer<typeof zRegister>;

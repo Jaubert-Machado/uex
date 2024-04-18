@@ -53,5 +53,5 @@ export const RegisterCallout = styled.span`
 
 export const RegisterLink = styled(Link)`
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.text.primary};
+  color: ${({ theme }) => theme.colors.text.tertiary};
 `;
