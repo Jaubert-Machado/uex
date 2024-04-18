@@ -5,19 +5,19 @@ import * as S from "./styles";
 import InputField from "@components/InputField";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Login, zLogin } from "@schemas/login";
+import { TLogin, zLogin } from "@schemas/login";
 import Button from "@components/Button";
 
-export default function Home() {
+export const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Login>({
+  } = useForm<TLogin>({
     resolver: zodResolver(zLogin),
   });
 
-  function onLogin(data: Login) {
+  function onLogin(data: TLogin) {
     console.log(data);
   }
 
@@ -56,4 +56,6 @@ export default function Home() {
       </S.LoginCard>
     </S.Page>
   );
-}
+};
+
+export default Login;
