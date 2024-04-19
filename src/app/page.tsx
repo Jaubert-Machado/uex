@@ -1,24 +1,45 @@
 "use client";
 
-import Card from "@components/Card";
 import * as S from "./styles";
 import InputField from "@components/InputField";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { TLogin, zLogin } from "@schemas/login";
 import Button from "@components/Button";
+import { login } from "./actions";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { getSession } from "../utils/session";
+import { cookies } from "next/headers";
 
 export const Login = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
   } = useForm<TLogin>({
     resolver: zodResolver(zLogin),
   });
 
-  function onLogin(data: TLogin) {
-    console.log(data);
+  useEffect(() => {
+    async function checkSession() {}
+
+    checkSession();
+  }, [router]);
+
+  async function onLogin(data: TLogin) {
+    const res = await login(data);
+
+    if (!res.ok) {
+      return setError("password", {
+        type: "manual",
+        message: "Credenciais invalidas.",
+      });
+    }
+
+    router.replace("/home");
   }
 
   return (

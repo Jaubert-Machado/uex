@@ -10,9 +10,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { registerUser } from "./actions";
 import { AnimatePresence } from "framer-motion";
 import { BsArrowLeft } from "react-icons/bs";
+import { login } from "../actions";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
   const [success, setSuccess] = useState(false);
+  const router = useRouter();
 
   const {
     register,
@@ -33,6 +36,11 @@ const Register = () => {
       });
 
     setSuccess(true);
+    login(data);
+
+    setTimeout(() => {
+      router.replace("/home");
+    }, 2000);
   }
 
   return (

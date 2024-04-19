@@ -23,6 +23,8 @@ export const Page = styled.div`
 export const LoginCard = styled(Card)`
   width: 30%;
   height: 50%;
+  min-width: 300px;
+  max-height: 400px;
 `;
 
 export const Form = styled.form`
