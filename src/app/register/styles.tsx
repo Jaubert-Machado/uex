@@ -31,6 +31,7 @@ export const RegisterCard = styled(Card)`
   width: 30%;
   height: 60%;
   min-width: 300px;
+  max-height: 500px;
 `;
 
 export const Form = motion(styled.form`
