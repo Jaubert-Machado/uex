@@ -1,6 +1,5 @@
 "use client";
 
-import Card from "@components/Card";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import styled from "styled-components";

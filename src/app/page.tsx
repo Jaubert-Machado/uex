@@ -8,8 +8,6 @@ import Button from "@components/Button";
 import { login } from "./actions";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { getSession } from "../utils/session";
-import { cookies } from "next/headers";
 import { TLogin, zLogin } from "@schemas/account";
 
 export const Login = () => {

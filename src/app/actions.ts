@@ -1,6 +1,5 @@
 "use server";
 
-import { TLogin } from "@schemas/login";
 import { db } from "../database";
 import { users } from "../database/schema";
 import { errorHandler } from "../utils/error";
@@ -8,6 +7,7 @@ import bcrypt from "bcrypt";
 
 import { cookies } from "next/headers";
 import { encrypt } from "../utils/session";
+import { TLogin } from "@schemas/account";
 
 export async function login(data: TLogin) {
   try {

@@ -1,6 +1,5 @@
 "use client";
 
-import Card from "@components/Card";
 import Link from "next/link";
 import styled from "styled-components";
 

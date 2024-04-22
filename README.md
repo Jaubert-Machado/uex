@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Projeto teste criado para a vaga de desenvolvedor front-end (uex).
 
-## Getting Started
+As seguintes tecnologias foram utilizadas:
 
-First, run the development server:
+- Next.js
+- TypeScript
+- Styled Components
+- Drizzle ORM
+- SQLite
+- dentre outras bibliotecas e ferramentas.
+
+## Instruções para rodar o projeto
+
+Após clonar o repositório, execute o comando abaixo para instalar as dependências:
+
+```bash
+npm install
+```
+
+Com as dependencias instaladas execute os comandos para criar o banco de dados:
+
+```bash
+npm run db:generate
+```
+
+```bash
+npm run db:migrate
+```
+
+Para o funcionamento correto do projeto são necessárias as variáveis de ambiente, crie um arquivo `.env.local` na raiz do projeto seguindo o exemplo do arquivo `.env.example`.
+
+Após a criação do arquivo de variáveis de ambiente, execute o comando abaixo para iniciar o projeto:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O projeto estará disponível em `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura do projeto
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+O projeto foi desenvolvido utilizando a arquitetura de pastas abaixo:
 
-## Learn More
+- `app`: Contém as páginas/rotas da aplicação.
+- `components`: Contém os componentes reutilizáveis da aplicação.
+- `database`: Contém os arquivos de configuração do banco de dados.
+- `schemas`: Contém os arquivos de definição das validações.
+- `types`: Contém os arquivos de definição de tipos e typeguards.
+- `utils`: Contém os arquivos de funções utilitárias.
 
-To learn more about Next.js, take a look at the following resources:
+## Observações
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- O projeto foi desenvolvido do dia 18/04 ao dia 21/04.
+- O projeto foi desenvolvido com o intuito de demonstrar o conhecimento nas tecnologias utilizadas.
+- Estou a disposição para esclarecer qualquer dúvida sobre o projeto ou decisões tomadas.
