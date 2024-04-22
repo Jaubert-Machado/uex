@@ -6,3 +6,9 @@ export const zLogin = z.object({
 });
 
 export type TLogin = z.infer<typeof zLogin>;
+
+export const zDeleteAccount = z.object({
+  password: z.string().min(1, "Insira sua senha."),
+});
+
+export type TDeleteAccount = z.infer<typeof zDeleteAccount>;

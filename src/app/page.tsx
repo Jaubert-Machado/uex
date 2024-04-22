@@ -4,13 +4,13 @@ import * as S from "./styles";
 import InputField from "@components/InputField";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { TLogin, zLogin } from "@schemas/login";
 import Button from "@components/Button";
 import { login } from "./actions";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { getSession } from "../utils/session";
 import { cookies } from "next/headers";
+import { TLogin, zLogin } from "@schemas/account";
 
 export const Login = () => {
   const router = useRouter();
@@ -44,21 +44,25 @@ export const Login = () => {
 
   return (
     <S.Page>
-      <S.LoginCard>
+      <S.FormContainer>
         <h1>Login</h1>
         <S.Form onSubmit={handleSubmit(onLogin)}>
           <S.FieldsContainer>
             <InputField
-              label="E-mail"
-              register={register("email")}
+              label={{
+                value: "Email",
+              }}
+              {...register("email")}
               additionalInfo={{
                 message: errors.email?.message,
                 type: "error",
               }}
             />
             <InputField
-              label="Senha"
-              register={register("password")}
+              label={{
+                value: "Senha",
+              }}
+              {...register("password")}
               secureTextEntry
               additionalInfo={{
                 message: errors.password?.message,
@@ -67,14 +71,14 @@ export const Login = () => {
             />
           </S.FieldsContainer>
           <S.ButtonsContainer>
+            <Button type="submit">Acessar</Button>
             <S.RegisterCallout>
               Ainda não possui uma conta?{" "}
               <S.RegisterLink href="/register">Registre-se</S.RegisterLink>.
             </S.RegisterCallout>
-            <Button type="submit">Entrar</Button>
           </S.ButtonsContainer>
         </S.Form>
-      </S.LoginCard>
+      </S.FormContainer>
     </S.Page>
   );
 };

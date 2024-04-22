@@ -43,12 +43,12 @@ export async function keepCookieAlive(request: NextRequest) {
 
 export async function getSession() {
   const session = cookies().get("session")?.value;
-  if (!session) return;
+
+  if (!session) return null;
+
   return await decrypt(session);
 }
 
-export async function logout(request: NextRequest) {
-  cookies().set("session", "", {
-    expires: new Date(0),
-  });
+export async function logout() {
+  cookies().delete("session");
 }

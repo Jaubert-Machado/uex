@@ -4,11 +4,11 @@ import Card from "@components/Card";
 import Link from "next/link";
 import styled from "styled-components";
 
-export const Page = styled.div`
+export const Page = styled.section`
   h1 {
     font-weight: 400;
     font-size: 1.8rem;
-    color: ${({ theme }) => theme.colors.text.secondary};
+    color: ${({ theme }) => theme.colors.text.primary};
     margin-bottom: 30px;
   }
 
@@ -20,7 +20,9 @@ export const Page = styled.div`
   justify-content: center;
 `;
 
-export const LoginCard = styled(Card)`
+export const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 30%;
   height: 50%;
   min-width: 300px;
@@ -55,5 +57,5 @@ export const RegisterCallout = styled.span`
 
 export const RegisterLink = styled(Link)`
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.text.tertiary};
+  color: ${({ theme }) => theme.colors.text.primary};
 `;

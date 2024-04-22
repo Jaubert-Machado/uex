@@ -8,13 +8,37 @@ import Button from "@components/Button";
 import { TRegister, zRegister } from "@schemas/register";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerUser } from "./actions";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, Variants } from "framer-motion";
 import { BsArrowLeft } from "react-icons/bs";
 import { login } from "../actions";
 import { useRouter } from "next/navigation";
+import { useTheme } from "styled-components";
+
+const FORM_VARIANTS: Variants = {
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+  hidden: {
+    opacity: 0,
+    y: 20,
+  },
+};
+
+const REGISTER_SUCCESS_VARIANTS: Variants = {
+  initial: {
+    opacity: 0,
+    y: 20,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+  },
+};
 
 const Register = () => {
   const [success, setSuccess] = useState(false);
+  const theme = useTheme();
   const router = useRouter();
 
   const {
@@ -45,10 +69,15 @@ const Register = () => {
 
   return (
     <S.Page>
-      <S.RegisterCard>
+      <S.FormContainer>
         <S.CardHeader>
-          <h1>Register</h1>
-          <S.BackButton href="/">
+          <h1>Cadastro</h1>
+          <S.BackButton
+            whileHover={{
+              backgroundColor: theme.colors.container.primaryLight,
+            }}
+            href="/"
+          >
             <BsArrowLeft size={24} />
           </S.BackButton>
         </S.CardHeader>
@@ -56,32 +85,35 @@ const Register = () => {
           {!success && (
             <S.Form
               key="form"
-              exit={{
-                opacity: 0,
-                y: 20,
-              }}
+              variants={FORM_VARIANTS}
+              exit="hidden"
+              initial="visible"
               onSubmit={handleSubmit(onRegister)}
             >
               <S.FieldsContainer>
                 <InputField
-                  register={register("name")}
-                  label="Name"
+                  {...register("name")}
+                  label={{ value: "Nome" }}
                   additionalInfo={{
                     message: errors.name?.message,
                     type: "error",
                   }}
                 />
                 <InputField
-                  register={register("email")}
-                  label="E-mail"
+                  {...register("email")}
+                  label={{
+                    value: "E-mail",
+                  }}
                   additionalInfo={{
                     message: errors.email?.message,
                     type: "error",
                   }}
                 />
                 <InputField
-                  register={register("password")}
-                  label="Password"
+                  {...register("password")}
+                  label={{
+                    value: "Senha",
+                  }}
                   secureTextEntry
                   additionalInfo={{
                     message: errors.password?.message,
@@ -90,28 +122,23 @@ const Register = () => {
                 />
               </S.FieldsContainer>
               <S.ButtonsContainer>
-                <Button>Register</Button>
+                <Button>Cadastrar</Button>
               </S.ButtonsContainer>
             </S.Form>
           )}
           {success && (
             <S.RegisterSuccess
               key="success"
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
+              variants={REGISTER_SUCCESS_VARIANTS}
+              initial="initial"
+              animate="animate"
             >
               <h1>Usuário registrado com sucesso!</h1>
               <p>Você será redirecionado para dentro do app. :)</p>
             </S.RegisterSuccess>
           )}
         </AnimatePresence>
-      </S.RegisterCard>
+      </S.FormContainer>
     </S.Page>
   );
 };

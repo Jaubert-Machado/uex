@@ -1,4 +1,3 @@
-import { relations } from "drizzle-orm";
 import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 export const users = sqliteTable("User", {
@@ -8,20 +7,20 @@ export const users = sqliteTable("User", {
   password: text("password").notNull(),
 });
 
-export const usersRelations = relations(users, ({ many }) => ({
-  users: many(location),
-}));
-
-export const location = sqliteTable("Location", {
+export const contacts = sqliteTable("Contacts", {
   id: integer("id").primaryKey(),
-  name: text("name"),
-  address: text("address"),
-  city: text("city"),
-  state: text("state"),
-  zip: text("zip"),
-  country: text("country"),
+  name: text("name").notNull(),
+  cpf: text("cpf").notNull(),
+  phone: text("phone").notNull(),
+  address: text("address").notNull(),
+  district: text("district").notNull(),
+  addressNumber: text("addressNumber").notNull(),
+  addOnAddress: text("addOnAddress"),
+  city: text("city").notNull(),
+  state: text("state").notNull(),
+  cep: text("cep").notNull(),
+  coordinates: text("coordinates").notNull(),
+  userId: integer("userId")
+    .references(() => users.id)
+    .notNull(),
 });
-
-export const locationRelations = relations(location, ({ one }) => ({
-  user: one(users),
-}));

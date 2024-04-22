@@ -4,6 +4,8 @@ import { MotionProps, Variants } from "framer-motion";
 
 type Props = {
   children: React.ReactNode;
+  icon?: React.ReactNode;
+  fill?: boolean;
 } & ComponentProps<"button"> &
   MotionProps;
 
@@ -20,14 +22,16 @@ const BUTTON_VARIANTS: Variants = {
   },
 };
 
-const Button = ({ children, ...props }: Props) => {
+const Button = ({ children, icon, fill = false, ...props }: Props) => {
   return (
     <S.Container
       variants={BUTTON_VARIANTS}
       whileHover="hover"
       whileTap="tap"
+      $fill={fill}
       {...props}
     >
+      {icon && icon}
       {children}
     </S.Container>
   );

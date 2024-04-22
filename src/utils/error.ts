@@ -1,4 +1,4 @@
-export function errorHandler(error: unknown) {
+export function errorHandler(error: unknown): { ok: false; message: string } {
   if (error instanceof Error) {
     return {
       ok: false,

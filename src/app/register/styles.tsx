@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import styled from "styled-components";
 
-export const Page = styled.div`
+export const Page = styled.section`
   h1 {
     font-weight: 400;
     font-size: 1.8rem;
-    color: ${({ theme }) => theme.colors.text.secondary};
+    color: ${({ theme }) => theme.colors.text.primary};
   }
 
   background-color: ${({ theme }) => theme.colors.surface.neutral};
@@ -27,7 +27,9 @@ export const CardHeader = styled.div`
   margin-bottom: 30px;
 `;
 
-export const RegisterCard = styled(Card)`
+export const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 30%;
   height: 60%;
   min-width: 300px;
@@ -54,13 +56,9 @@ export const ButtonsContainer = styled.div`
   margin-top: auto;
 `;
 
-export const BackButton = styled(Link)`
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.container.primary};
-  }
-
+export const BackButton = motion(styled(Link)`
   background-color: transparent;
-  color: ${({ theme }) => theme.colors.text.tertiary};
+  color: ${({ theme }) => theme.colors.text.primary};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,7 +68,7 @@ export const BackButton = styled(Link)`
   height: 40px;
   cursor: pointer;
   transition: background-color 0.2s;
-`;
+`);
 
 export const RegisterSuccess = motion(styled.div`
   display: flex;
