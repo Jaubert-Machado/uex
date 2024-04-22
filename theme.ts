@@ -3,16 +3,15 @@ import { DefaultTheme } from "styled-components";
 export const theme: DefaultTheme = {
   colors: {
     text: {
-      primary: "hsl(0, 0%, 13%)",
-      secondary: "hsl(0, 0%, 46%)",
-      tertiary: "hsl(183, 40%, 27%)",
+      primary: "hsl(270, 50%, 48%)",
+      onPrimary: "hsl(0, 0%, 100%)",
       error: "hsl(0, 75%, 42%)",
+      neutral: "hsl(0, 0%, 0%)",
     },
     container: {
-      primary: "hsl(189, 58%, 53%)",
-      primaryLight: "hsl(187, 66%, 72%)",
-      secondary: "hsl(9, 58%, 53%)",
-      tertiary: "hsl(219, 58%, 53%)",
+      primary: "hsl(270, 50%, 48%)",
+      primaryLight: "hsl(270, 47%, 80%)",
+      primaryDark: "hsl(270, 50%, 34%)",
       error: "hsl(0, 75%, 42%)",
     },
     surface: {

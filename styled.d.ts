@@ -5,15 +5,14 @@ declare module "styled-components" {
     colors: {
       text: {
         primary: string;
-        secondary: string;
-        tertiary: string;
+        onPrimary: string;
         error: string;
+        neutral: string;
       };
       container: {
         primary: string;
         primaryLight: string;
-        secondary: string;
-        tertiary: string;
+        primaryDark: string;
         error: string;
       };
       surface: {
